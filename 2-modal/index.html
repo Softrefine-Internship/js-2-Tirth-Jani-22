@@ -4,12 +4,214 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
     <style>
-      /* write CSS here */
+      body {
+        font-family: "Roboto", sans-serif;
+        display: flex;
+        height: 95vh;
+        width: 95vw;
+        justify-content: center;
+        align-items: center;
+        background-color: #848a96;
+      }
+      .card {
+        /* position: absolute; */
+        border-radius: 1rem;
+        overflow: hidden;
+        position: relative;
+        background-color: #ffffff;
+        text-align: left;
+        border-radius: 0.5rem;
+        max-width: 470px;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      .header {
+        padding: 1.25rem 1rem 1rem 1rem;
+        background-color: #ffffff;
+        display: flex;
+        gap: 1rem;
+      }
+
+      .image {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #fee2e2;
+        flex-shrink: 0;
+        justify-content: center;
+        align-items: center;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 9999px;
+      }
+
+      .image svg {
+        color: #dc2626;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      .content {
+      }
+
+      .title {
+        color: #111827;
+        font-size: 1rem;
+        font-weight: 600;
+        display: flex;
+        line-height: 1.5rem;
+      }
+
+      .message {
+        margin-top: 0.5rem;
+        color: #6b7280;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+
+      .actions {
+        margin: 0.75rem 1rem;
+        background-color: #f9fafb;
+        display: flex;
+        gap: 1rem;
+      }
+
+      .desactivate {
+        padding: 0.5rem 1rem;
+        background-color: #dc2626;
+        color: #ffffff;
+        font-size: 1rem;
+        cursor: pointer;
+        line-height: 1.5rem;
+        font-weight: 500;
+        border-radius: 0.375rem;
+        border-width: 1px;
+        border-color: transparent;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      }
+
+      .cancel {
+        margin-left: auto;
+        display: inline-flex;
+        padding: 0.5rem 1rem;
+        background-color: #ffffff;
+        color: #374151;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        cursor: pointer;
+        font-weight: 500;
+        justify-content: center;
+        border-radius: 0.375rem;
+        border: 1px solid #d1d5db;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      }
+      .clickme {
+        display: inline-flex;
+        padding: 0.5rem 1rem;
+        background-color: #ffffff;
+        color: #374151;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        cursor: pointer;
+        font-weight: 500;
+        justify-content: center;
+        border-radius: 0.375rem;
+        border: 1px solid #d1d5db;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      }
+      .close {
+        font-size: x-large;
+        color: rgba(0, 0, 0, 0.4);
+        margin-left: auto;
+        cursor: pointer;
+      }
     </style>
   </head>
-  <body></body>
+  <body>
+    <button type="button " class="clickme">Click Me</button>
+    <div class="card">
+      <div class="header">
+        <div class="part1">
+          <div class="image">
+            <svg
+              aria-hidden="true"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <div class="part2">
+          <div class="content">
+            <div class="title">
+              Desactivate account
+              <span class="close"
+                ><ion-icon name="close-outline"></ion-icon
+              ></span>
+            </div>
+            <p class="message">
+              Are you sure you want to deactivate your account? All of your data
+              will be permanently removed from our servers forever. This action
+              cannot be undone.
+            </p>
+          </div>
+          <div class="actions">
+            <button class="cancel" type="button">Cancel</button>
+            <button class="desactivate" type="button">Desactivate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
   <script>
     // write javascript here
+    document.querySelector("body").style.backgroundColor = "#FFF";
+    document.querySelector(".card").style.display = "none";
+    document.querySelector(".clickme").addEventListener("click", () => {
+      document.querySelector(".card").style.display = "block";
+      document.querySelector("body").style.backgroundColor = "#848a96";
+      document.querySelector(".clickme").style.display = "none";
+    });
+    document.querySelector(".cancel").addEventListener("click", () => {
+      document.querySelector(".clickme").style.display = "block";
+      document.querySelector("body").style.backgroundColor = "#FFF";
+      document.querySelector(".card").style.display = "none";
+    });
+    document.querySelector(".desactivate").addEventListener("click", () => {
+      document.querySelector(".clickme").style.display = "block";
+      document.querySelector("body").style.backgroundColor = "#FFF";
+      document.querySelector(".card").style.display = "none";
+      alert("Your account has been deactivated!")
+    });
+    document.querySelector(".close").addEventListener("click", () => {
+      document.querySelector(".clickme").style.display = "block";
+      document.querySelector("body").style.backgroundColor = "#FFF";
+      document.querySelector(".card").style.display = "none";
+      // alert("Your account has been deactivated!")
+    });
+
   </script>
 </html>

@@ -5,11 +5,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      /* write CSS here */
+      body {
+        color: #555;
+        font-size: larger;
+        height: 96vh;
+        width: 98vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .tabs {
+        margin: 0 1rem;
+        width: 75%;
+      }
+      .tab {
+        margin: 0 1rem;
+        display: flex;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.496);
+        z-index: 2;
+        gap: 2rem;
+      }
+      .navHead {
+        font-weight: 600;
+        color: #555;
+        /* margin: 0 1re?m; */
+        padding: 1rem 0;
+        font-size: larger;
+        cursor: pointer;
+      }
+      .content {
+        padding: 1rem;
+      }
+      .focus {
+        color: rgb(68, 68, 242);
+        border-bottom: 3px solid rgb(68, 68, 242);
+        margin-bottom: -2px;
+        z-index: 999;
+      }
+      span {
+        color: black;
+      }
     </style>
   </head>
-  <body></body>
+  <body>
+    <section class="tabs">
+      <div class="tab">
+        <span class="focus profile navHead">Profile</span>
+        <span class="unfocus dashboard navHead">Dashboard</span>
+        <span class="unfocus settings navHead">Settings</span>
+        <span class="unfocus contacts navHead">Contacts</span>
+      </div>
+      <div class="content">
+        <p class="profile-content">
+          This is some placeholder content the
+          <span> Profile tab's associated content.</span> another tab will
+          toggle the visibility of this one for the next. The tab JavaScript
+          swaps classes to control the content visibility and styling.
+        </p>
+        <p class="dashboard-content">
+          This is some placeholder content the
+          <span> Dashboard tab's associated content.</span> another tab will
+          toggle the visibility of this one for the next. The tab JavaScript
+          swaps classes to control the content visibility and styling.
+        </p>
+        <p class="setting-content">
+          This is some placeholder content the
+          <span> Setting tab's associated content.</span> another tab will
+          toggle the visibility of this one for the next. The tab JavaScript
+          swaps classes to control the content visibility and styling.
+        </p>
+        <p class="contact-content">
+          This is some placeholder content the
+          <span> Contact tab's associated content.</span> another tab will
+          toggle the visibility of this one for the next. The tab JavaScript
+          swaps classes to control the content visibility and styling.
+        </p>
+      </div>
+    </section>
+  </body>
   <script>
-    // write javascript here
+    const profileContent = document.querySelector(".profile-content");
+    const dashboardContent = document.querySelector(".dashboard-content");
+    const settingContent = document.querySelector(".setting-content");
+    const contactContent = document.querySelector(".contact-content");
+    profileContent.style.display = "block";
+    dashboardContent.style.display = "none";
+    settingContent.style.display = "none";
+    contactContent.style.display = "none";
+    document.querySelector(".profile").addEventListener("click", () => {
+      document.querySelector(".profile").classList.add("focus");
+      document.querySelector(".settings").classList.remove("focus");
+      document.querySelector(".dashboard").classList.remove("focus");
+      document.querySelector(".contacts").classList.remove("focus");
+      profileContent.style.display = "block";
+      dashboardContent.style.display = "none";
+      settingContent.style.display = "none";
+      contactContent.style.display = "none";
+    });
+    document.querySelector(".settings").addEventListener("click", () => {
+      document.querySelector(".profile").classList.remove("focus");
+      document.querySelector(".settings").classList.add("focus");
+      document.querySelector(".dashboard").classList.remove("focus");
+      document.querySelector(".contacts").classList.remove("focus");
+      profileContent.style.display = "none";
+      dashboardContent.style.display = "block";
+      settingContent.style.display = "none";
+      contactContent.style.display = "none";
+    });
+
+    document.querySelector(".dashboard").addEventListener("click", () => {
+      document.querySelector(".profile").classList.remove("focus");
+      document.querySelector(".settings").classList.remove("focus");
+      document.querySelector(".dashboard").classList.add("focus");
+      document.querySelector(".contacts").classList.remove("focus");
+      profileContent.style.display = "none";
+      dashboardContent.style.display = "none";
+      settingContent.style.display = "block";
+      contactContent.style.display = "none";
+    });
+    document.querySelector(".contacts").addEventListener("click", () => {
+      document.querySelector(".profile").classList.remove("focus");
+      document.querySelector(".settings").classList.remove("focus");
+      document.querySelector(".dashboard").classList.remove("focus");
+      document.querySelector(".contacts").classList.add("focus");
+      profileContent.style.display = "none";
+      dashboardContent.style.display = "none";
+      settingContent.style.display = "none";
+      contactContent.style.display = "block";
+    });
   </script>
 </html>
