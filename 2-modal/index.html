@@ -19,11 +19,14 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
     <style>
+      html {
+        overflow: hidden;
+      }
       body {
         font-family: "Roboto", sans-serif;
         display: flex;
-        height: 95vh;
-        width: 95vw;
+        height: 100vh;
+        width: 100vw;
         justify-content: center;
         align-items: center;
         background-color: #848a96;
@@ -36,7 +39,7 @@
         background-color: #ffffff;
         text-align: left;
         border-radius: 0.5rem;
-        max-width: 470px;
+        max-width: 30rem;
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
           0 10px 10px -5px rgba(0, 0, 0, 0.04);
       }
@@ -56,8 +59,8 @@
         flex-shrink: 0;
         justify-content: center;
         align-items: center;
-        width: 2rem;
-        height: 2rem;
+        width: 2.5rem;
+        height: 2.5rem;
         border-radius: 9999px;
       }
 
@@ -67,12 +70,9 @@
         height: 1.5rem;
       }
 
-      .content {
-      }
-
       .title {
-        color: #111827;
-        font-size: 1rem;
+        color: #111827d4;
+        font-size: 1.2rem;
         font-weight: 600;
         display: flex;
         line-height: 1.5rem;
@@ -83,6 +83,7 @@
         color: #6b7280;
         font-size: 0.875rem;
         line-height: 1.25rem;
+        margin-right: 1.5rem;
       }
 
       .actions {
@@ -111,7 +112,7 @@
         display: inline-flex;
         padding: 0.5rem 1rem;
         background-color: #ffffff;
-        color: #374151;
+        color: #111827d4;
         font-size: 1rem;
         line-height: 1.5rem;
         cursor: pointer;
@@ -140,6 +141,19 @@
         color: rgba(0, 0, 0, 0.4);
         margin-left: auto;
         cursor: pointer;
+      }
+
+      @media (max-width: 560px) {
+        .actions {
+          display: block;
+          margin:1rem 0
+        }
+        .desactivate {
+          width: 100%;
+        }
+        .cancel {
+          display: none;
+        }
       }
     </style>
   </head>
@@ -204,7 +218,7 @@
       document.querySelector(".clickme").style.display = "block";
       document.querySelector("body").style.backgroundColor = "#FFF";
       document.querySelector(".card").style.display = "none";
-      alert("Your account has been deactivated!")
+      alert("Your account has been deactivated!");
     });
     document.querySelector(".close").addEventListener("click", () => {
       document.querySelector(".clickme").style.display = "block";
@@ -212,6 +226,5 @@
       document.querySelector(".card").style.display = "none";
       // alert("Your account has been deactivated!")
     });
-
   </script>
 </html>

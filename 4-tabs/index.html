@@ -10,31 +10,33 @@
         font-size: larger;
         height: 96vh;
         width: 98vw;
-        display: flex;
+        display: block;
         justify-content: center;
         align-items: center;
       }
       .tabs {
-        margin: 0 1rem;
-        width: 75%;
+        /* margin: 0 1rem; */
+        width: 100%;
       }
       .tab {
+        min-width: 480px;
         margin: 0 1rem;
         display: flex;
         border-bottom: 1px solid rgba(0, 0, 0, 0.496);
         z-index: 2;
-        gap: 2rem;
+        justify-content: space-between;
       }
       .navHead {
         font-weight: 600;
         color: #555;
         /* margin: 0 1re?m; */
-        padding: 1rem 0;
+        padding: 1rem 1rem;
         font-size: larger;
         cursor: pointer;
       }
       .content {
-        padding: 1rem;
+        min-width: 480px;
+        padding: 2  rem;
       }
       .focus {
         color: rgb(68, 68, 242);
@@ -45,15 +47,20 @@
       span {
         color: black;
       }
+      @media (max-width: 543px) {
+        body {
+          display: block;
+        }
+      }
     </style>
   </head>
   <body>
     <section class="tabs">
       <div class="tab">
-        <span class="focus profile navHead">Profile</span>
-        <span class="unfocus dashboard navHead">Dashboard</span>
-        <span class="unfocus settings navHead">Settings</span>
-        <span class="unfocus contacts navHead">Contacts</span>
+        <div class="focus profile navHead">Profile</div>
+        <div class="unfocus dashboard navHead">Dashboard</div>
+        <div class="unfocus settings navHead">Settings</div>
+        <div class="unfocus contacts navHead">Contacts</div>
       </div>
       <div class="content">
         <p class="profile-content">

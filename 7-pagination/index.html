@@ -60,7 +60,7 @@
       .pagination a:hover:not(.active) {
         background-color: #ddd;
       }
-      .diku{
+      .diku {
         padding: 1rem 2rem;
         border: 1px solid #ddd;
         text-decoration: none;
@@ -68,9 +68,14 @@
         font-weight: bold;
         font-size: larger;
       }
-      .active{
+      .active {
         color: rgb(88, 88, 215);
         background-color: rgb(232, 253, 255);
+      }
+      @media (max-width: 35em) {
+        body {
+          font-size: 60%;
+        }
       }
     </style>
   </head>
@@ -119,7 +124,7 @@
         for (let i = 1; i <= totalPages; i++) {
           const link = document.createElement("a");
           link.href = "#";
-          link.className = 'diku'
+          link.className = "diku";
           link.innerText = i;
 
           if (i === currentPage) {
@@ -172,51 +177,6 @@
       "Item 23",
       "Item 24",
       "Item 25",
-      "Item 26",
-      "Item 27",
-      "Item 28",
-      "Item 29",
-      "Item 30",
-      "Item 31",
-      "Item 32",
-      "Item 33",
-      "Item 34",
-      "Item 35",
-      "Item 1",
-      "Item 2",
-      "Item 3",
-      "Item 4",
-      "Item 5",
-      "Item 6",
-      "Item 7",
-      "Item 8",
-      "Item 9",
-      "Item 10",
-      "Item 11",
-      "Item 12",
-      "Item 13",
-      "Item 14",
-      "Item 15",
-      "Item 16",
-      "Item 17",
-      "Item 18",
-      "Item 19",
-      "Item 20",
-      "Item 21",
-      "Item 22",
-      "Item 23",
-      "Item 24",
-      "Item 25",
-      "Item 26",
-      "Item 27",
-      "Item 28",
-      "Item 29",
-      "Item 30",
-      "Item 31",
-      "Item 32",
-      "Item 33",
-      "Item 34",
-      "Item 35",
     ];
 
     const itemsPerPage = 5;

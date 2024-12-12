@@ -29,6 +29,7 @@
     <style>
       /* write CSS here */
       body {
+        overflow: scroll  ;
         font: "Roboto", serif;
         height: 96vh;
         width: 98vw;
@@ -59,6 +60,8 @@
       .item-1-content,
       .item-2-content,
       .item-3-content {
+        max-height: 5rem;
+        overflow: scroll;
         display: none;
         padding: 1rem 1rem;
         border-bottom: 2px solid rgba(0, 0, 0, 0.2);
@@ -147,6 +150,7 @@
           document
             .querySelector(`.item-${i}-content`)
             .classList.toggle("focus-content");
+          
         });
     }
   </script>
