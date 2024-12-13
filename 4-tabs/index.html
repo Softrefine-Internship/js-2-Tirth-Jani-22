@@ -7,11 +7,13 @@
     <style>
       body {
         color: #555;
+        display: flex;
         font-size: larger;
         height: 96vh;
         width: 98vw;
         display: block;
         justify-content: center;
+        overflow: hidden;
         align-items: center;
       }
       .tabs {
@@ -19,24 +21,24 @@
         width: 100%;
       }
       .tab {
-        min-width: 480px;
-        margin: 0 1rem;
+        /* min-width: 480px; */
+        margin: 0 0.5rem;
         display: flex;
         border-bottom: 1px solid rgba(0, 0, 0, 0.496);
         z-index: 2;
-        justify-content: space-between;
+        gap: 1rem;
+        /* justify-content: space-between; */
       }
       .navHead {
         font-weight: 600;
         color: #555;
-        /* margin: 0 1re?m; */
         padding: 1rem 1rem;
         font-size: larger;
         cursor: pointer;
       }
       .content {
-        min-width: 480px;
-        padding: 2  rem;
+        /* min-width: 48rem; */
+        padding: 2rem;
       }
       .focus {
         color: rgb(68, 68, 242);
@@ -49,7 +51,22 @@
       }
       @media (max-width: 543px) {
         body {
-          display: block;
+          font-size: 16px;
+          /* display: block; */
+        }
+      }
+      @media (max-width: 463px) {
+        body {
+          font-size: 100%;
+          /* display: block; */
+        }
+        .content{
+          padding: 1rem;
+        }
+        .navHead {
+          font-size: 100%;
+          margin: 0;
+          padding: 1rem 0;
         }
       }
     </style>

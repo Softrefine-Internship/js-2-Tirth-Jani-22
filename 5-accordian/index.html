@@ -27,27 +27,31 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
     <style>
-      /* write CSS here */
       body {
-        overflow: scroll  ;
-        font: "Roboto", serif;
-        height: 96vh;
-        width: 98vw;
+        overflow: hidden;
+        font-family: "Roboto", serif;
+        height: 100vh;
+        width: 100vw;
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: all 0.1s;
       }
+
       .red {
         color: red;
       }
+
       .bold {
         font-weight: bold;
       }
+
       .accordian {
         width: 40rem;
         border: 2px solid rgba(0, 0, 0, 0.2);
         border-radius: 0.5rem;
       }
+
       .item-1-title,
       .item-2-title,
       .item-3-title {
@@ -57,27 +61,39 @@
         cursor: pointer;
         border-bottom: 2px solid rgba(0, 0, 0, 0.2);
       }
+
       .item-1-content,
       .item-2-content,
       .item-3-content {
-        max-height: 5rem;
-        overflow: scroll;
-        display: none;
-        padding: 1rem 1rem;
+        font-size: large;
+        overflow: hidden;
         border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.1s ease;
       }
+
       .icon {
         margin-left: auto;
       }
+
       .focus-title {
         color: rgb(60, 60, 228);
       }
+
       .focus-icon {
         color: rgb(60, 60, 228);
         transform: rotate(180deg);
       }
+
       .focus-content {
-        display: block;
+        overflow-y: scroll;
+        max-height: 200px;
+        opacity: 1;
+        padding: 1rem 1rem;
+      }
+      .focus-content::-webkit-scrollbar {
+        display: none;
       }
     </style>
   </head>
@@ -140,18 +156,40 @@
     </section>
   </body>
   <script>
-    for (let i = 1; i < 4; i++) {
-      document
-        .querySelector(`.item-${i}-title`)
-        .addEventListener("click", (e) => {
-          console.log(e.target.classList);
-          e.target.classList.toggle("focus-title");
-          document.querySelector(`.icon-${i}`).classList.toggle("focus-icon");
-          document
-            .querySelector(`.item-${i}-content`)
-            .classList.toggle("focus-content");
-          
+    document.addEventListener("DOMContentLoaded", function () {
+      const items = document.querySelectorAll(".accordian > div");
+
+      items.forEach((item, index) => {
+        const title = item.querySelector(`.item-${index + 1}-title`);
+        const content = item.querySelector(`.item-${index + 1}-content`);
+        const icon = item.querySelector(`.icon-${index + 1}`);
+
+        title.addEventListener("click", function () {
+          const isVisible = content.classList.contains("focus-content");
+
+          items.forEach((innerItem, innerIndex) => {
+            const innerContent = innerItem.querySelector(
+              `.item-${innerIndex + 1}-content`
+            );
+            const innerTitle = innerItem.querySelector(
+              `.item-${innerIndex + 1}-title`
+            );
+            const innerIcon = innerItem.querySelector(
+              `.icon-${innerIndex + 1}`
+            );
+
+            innerContent.classList.remove("focus-content");
+            innerTitle.classList.remove("focus-title");
+            innerIcon.classList.remove("focus-icon");
+          });
+
+          if (!isVisible) {
+            content.classList.add("focus-content");
+            title.classList.add("focus-title");
+            icon.classList.add("focus-icon");
+          }
         });
-    }
+      });
+    });
   </script>
 </html>

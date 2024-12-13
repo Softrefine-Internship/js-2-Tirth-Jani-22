@@ -19,23 +19,38 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
     <style>
+      *,
+      *::after,
+      *::before {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
       html {
         overflow: hidden;
       }
       body {
+        position: relative;
+        z-index: -1;
         font-family: "Roboto", sans-serif;
         display: flex;
         height: 100vh;
         width: 100vw;
         justify-content: center;
         align-items: center;
-        background-color: #848a96;
       }
       .card {
-        /* position: absolute; */
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        /* max-width: 20rem; */
+        min-width: 30rem;
         border-radius: 1rem;
         overflow: hidden;
-        position: relative;
+        /* position: relative; */
         background-color: #ffffff;
         text-align: left;
         border-radius: 0.5rem;
@@ -87,10 +102,10 @@
       }
 
       .actions {
-        margin: 0.75rem 1rem;
         background-color: #f9fafb;
         display: flex;
         gap: 1rem;
+        margin: 1rem 0;
       }
 
       .desactivate {
@@ -146,7 +161,7 @@
       @media (max-width: 560px) {
         .actions {
           display: block;
-          margin:1rem 0
+          margin: 1rem 0;
         }
         .desactivate {
           width: 100%;
@@ -158,7 +173,7 @@
     </style>
   </head>
   <body>
-    <button type="button " class="clickme">Click Me</button>
+    <button type="button" class="clickme">Click Me</button>
     <div class="card">
       <div class="header">
         <div class="part1">
@@ -202,29 +217,38 @@
   </body>
   <script>
     // write javascript here
-    document.querySelector("body").style.backgroundColor = "#FFF";
-    document.querySelector(".card").style.display = "none";
-    document.querySelector(".clickme").addEventListener("click", () => {
+    document.querySelector(".clickme").addEventListener("click", (e) => {
+      e.stopPropagation();
       document.querySelector(".card").style.display = "block";
-      document.querySelector("body").style.backgroundColor = "#848a96";
-      document.querySelector(".clickme").style.display = "none";
+      document.querySelector("body").style.backdropFilter = "contrast(40%)";
     });
-    document.querySelector(".cancel").addEventListener("click", () => {
-      document.querySelector(".clickme").style.display = "block";
-      document.querySelector("body").style.backgroundColor = "#FFF";
+
+    document.querySelector(".cancel").addEventListener("click", (e) => {
+      e.stopPropagation();
       document.querySelector(".card").style.display = "none";
+      document.querySelector("body").style.backdropFilter = "contrast(100%)";
     });
-    document.querySelector(".desactivate").addEventListener("click", () => {
-      document.querySelector(".clickme").style.display = "block";
-      document.querySelector("body").style.backgroundColor = "#FFF";
+
+    document.querySelector(".desactivate").addEventListener("click", (e) => {
+      e.stopPropagation();
       document.querySelector(".card").style.display = "none";
+      document.querySelector("body").style.backdropFilter = "contrast(100%)";
       alert("Your account has been deactivated!");
     });
-    document.querySelector(".close").addEventListener("click", () => {
-      document.querySelector(".clickme").style.display = "block";
-      document.querySelector("body").style.backgroundColor = "#FFF";
+
+    document.querySelector(".close").addEventListener("click", (e) => {
+      e.stopPropagation();
       document.querySelector(".card").style.display = "none";
-      // alert("Your account has been deactivated!")
+      document.querySelector("body").style.backdropFilter = "contrast(100%)";
+    });
+
+    document.querySelector(".card").addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+
+    document.querySelector("body").addEventListener("click", () => {
+      document.querySelector(".card").style.display = "none";
+      document.querySelector("body").style.backdropFilter = "contrast(100%)";
     });
   </script>
 </html>

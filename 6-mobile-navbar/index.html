@@ -17,16 +17,11 @@
     ></script>
 
     <style>
-
       body {
         overflow: hidden;
-        /* width: 90rem; */
         height: 90rem;
       }
       @media (max-width: 59em) {
-        .main-nav {
-          /* display: none; */
-        }
         .btn-mobile-nav {
           display: block;
         }
@@ -34,7 +29,7 @@
     </style>
   </head>
   <body>
-    <header class="header nav-open">
+    <header class="header">
       <a href="#">
         <img class="logo" alt="Omnifood logo" src="img/omnifood-logo.png" />
       </a>
@@ -54,7 +49,6 @@
     </header>
   </body>
   <script>
-    // write javascript here
     const btnNavEl = document.querySelector(".btn-mobile-nav");
     const headerEl = document.querySelector(".header");
 
@@ -67,9 +61,8 @@
       link.addEventListener("click", function (e) {
         e.preventDefault();
         const href = link.getAttribute("href");
-        console.log(href);
+        // console.log(href);
 
-        //Scroll Back to top
         if (href === "#")
           window.scrollTo({
             top: 0,
